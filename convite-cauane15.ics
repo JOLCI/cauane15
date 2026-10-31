@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cauane 15//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:cauane15-20261226@cauane15.vercel.app
+DTSTAMP:20261030T120000Z
+DTSTART:20261226T220000Z
+DTEND:20261227T030000Z
+SUMMARY:15 anos da Cauane
+LOCATION:R. Paraná\, 2079 - Planalto\, PR\, 85750-000
+DESCRIPTION:Meus 15 Anos - Cauane Oliveira. Você é nossa convidada especial! Convite: https://cauane15.vercel.app
+URL:https://cauane15.vercel.app
+END:VEVENT
+END:VCALENDAR

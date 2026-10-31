@@ -67,10 +67,10 @@ body{
 .untie .knot{transform:scale(.4);opacity:0;transition-delay:.25s}
 
 /* ---------- CARD ---------- */
-.card-inner{position:relative;background:var(--paper);border-radius:14px;aspect-ratio:300/425;overflow:hidden;box-shadow:0 20px 40px -18px rgba(122,60,75,.45)}
+.card-inner{position:relative;background:var(--paper);border-radius:14px;aspect-ratio:300/440;overflow:hidden;box-shadow:0 20px 40px -18px rgba(122,60,75,.45)}
 .card-inner::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='160' viewBox='0 0 120 160'%3E%3Cg fill='none' stroke='%23B86B7A' stroke-width='1.1' stroke-linecap='round' opacity='.22'%3E%3Cpath d='M60 10c-6 14-18 18-18 32 0 10 8 16 18 22 10-6 18-12 18-22 0-14-12-18-18-32z'/%3E%3Cpath d='M60 64c-10 4-20 2-26 10-4 6 0 14 8 14 6 0 10-4 18-6 8 2 12 6 18 6 8 0 12-8 8-14-6-8-16-6-26-10z'/%3E%3Cpath d='M60 64v30M48 78c-12 8-16 20-12 30 3 8 12 8 14 2M72 78c12 8 16 20 12 30-3 8-12 8-14 2'/%3E%3Cpath d='M20 150c6-12 18-12 24-4M100 150c-6-12-18-12-24-4M8 36c8-4 12 4 8 10M112 36c-8-4-12 4-8 10'/%3E%3C/g%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-width='1.1' stroke-linecap='round' opacity='.9' transform='translate(-1,-1)'%3E%3Cpath d='M60 10c-6 14-18 18-18 32 0 10 8 16 18 22 10-6 18-12 18-22 0-14-12-18-18-32z'/%3E%3Cpath d='M60 64c-10 4-20 2-26 10-4 6 0 14 8 14 6 0 10-4 18-6 8 2 12 6 18 6 8 0 12-8 8-14-6-8-16-6-26-10z'/%3E%3Cpath d='M60 64v30M48 78c-12 8-16 20-12 30 3 8 12 8 14 2M72 78c12 8 16 20 12 30-3 8-12 8-14 2'/%3E%3C/g%3E%3C/svg%3E");background-size:120px 160px;opacity:.9}
 .card-inner::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 20%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%);pointer-events:none}
-.arch{position:absolute;left:8%;right:8%;top:14%;bottom:5.5%;border:1.6px solid var(--rose);border-radius:999px 999px 10px 10px;opacity:.9}
+.arch{position:absolute;left:8%;right:8%;top:13%;bottom:4%;border:1.6px solid var(--rose);border-radius:999px 999px 10px 10px;opacity:.9}
 .arch::before{content:"";position:absolute;inset:4px;border:.8px solid rgba(184,107,122,.45);border-radius:999px 999px 8px 8px}
 .content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:11% 12% 8%;}
 .content svg{flex-shrink:0}
@@ -79,11 +79,11 @@ body{
 .card-bow{width:30%;margin-top:-3%;filter:drop-shadow(0 4px 6px rgba(122,60,75,.25))}
 .t-meus{font-family:var(--script);font-size:clamp(28px,9.2vw,40px);line-height:1;color:var(--rose);margin-top:7%}
 .t-nome{font-family:var(--script);font-size:clamp(40px,14vw,60px);line-height:1;color:var(--deep);margin-top:2%}
-.t-conv{font-size:clamp(14px,4.4vw,18px);font-weight:500;margin-top:6%;letter-spacing:.01em}
+.t-conv{font-size:clamp(14px,4.4vw,18px);font-weight:500;margin-top:5%;letter-spacing:.01em}
 .t-data{font-size:clamp(14px,4.4vw,18px);font-weight:600;margin-top:4%;padding:3.5% 0;border-top:1px solid var(--rose);border-bottom:1px solid var(--rose);width:100%;letter-spacing:.02em;color:var(--deep);line-height:1.35}
 .t-data span{font-weight:400;font-size:.95em}
-.t-local{font-size:clamp(13px,4.2vw,17px);margin-top:4.5%;line-height:1.35}
-.t-rsvp{font-size:clamp(12px,3.9vw,16px);margin-top:4%;line-height:1.35;font-style:italic}
+.t-local{font-size:clamp(13px,4.2vw,17px);margin-top:4%;line-height:1.35}
+.t-rsvp{font-size:clamp(12px,3.9vw,16px);margin-top:3.5%;line-height:1.35;font-style:italic}
 .ink{clip-path:inset(-10% 100% -10% 0);opacity:0}
 .reveal .ink{opacity:1;clip-path:inset(-10% -2% -10% 0);transition:clip-path 1.5s cubic-bezier(.4,0,.2,1),opacity .2s}
 .fade{opacity:0;transform:translateY(8px)}
@@ -113,9 +113,12 @@ body{
 .btn.primary{background:var(--rose);color:#fff;border-color:var(--rose)}
 .btn:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
 .foot{font-size:14px;margin-top:22px;opacity:.75}
-.record-cta{position:fixed;left:0;right:0;bottom:7%;text-align:center;font-size:22px;color:var(--deep);opacity:0;transition:opacity .8s;z-index:30}
+.record-cta{position:fixed;left:0;right:0;bottom:3.5%;text-align:center;font-size:22px;color:var(--deep);opacity:0;transition:opacity .8s;z-index:30}
 .record-cta.show{opacity:1}
 .record-cta b{display:block;font-family:var(--script);font-size:34px;font-weight:400;color:var(--rose)}
+.record-cta .url{display:block;font-size:26px;font-weight:600;letter-spacing:.02em;margin:2px 0 4px}
+.record-cta{font-size:19px;opacity:0}
+body.record .scene.out .card{transform:translateY(-14%) scale(1.02)}
 @supports (width:1cqw){.t-meus{font-size:13.3cqw}.t-nome{font-size:20cqw}.t-conv{font-size:5.8cqw}.t-data{font-size:5.5cqw}.t-local{font-size:5.5cqw}.t-rsvp{font-size:5.1cqw}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
 </style>
@@ -202,13 +205,13 @@ body{
     <p class="foot">Com carinho, Cauane e família</p>
   </section>
 
-  <div class="record-cta" id="recordCta"><b>Toque no link</b>para abrir o convite completo</div>
+  <div class="record-cta" id="recordCta"><b>Abra o convite completo</b><span class="url">cauane15.vercel.app</span>toque no link desta mensagem</div>
 </main>
 
 <script>
 (function(){
   // ===== Dados para trocar antes do deploy =====
-  var RSVP_PHONE = '5500000000000';        // só dígitos, com 55 + DDD. Ex.: 5546999990000
+  var RSVP_PHONE = '5546999073072';        // só dígitos, com 55 + DDD. Ex.: 5546999990000
   var RSVP_DEADLINE = '10 de dezembro';     // prazo de confirmação
   var EVENT_START = '2026-12-26T19:00:00-03:00';
   // =============================================
@@ -218,15 +221,23 @@ body{
   var record = q.get('record') === '1';
 
   document.getElementById('deadline').textContent = RSVP_DEADLINE;
+  if (record) document.body.classList.add('record');
   if (record) document.getElementById('hint').innerHTML = 'Um convite especial <em>para você</em> ♥';
   var msg = 'Olá! Confirmo presença nos 15 anos da Cauane 💗\nNome: ';
   document.getElementById('rsvp').href = 'https://wa.me/' + RSVP_PHONE + '?text=' + encodeURIComponent(msg);
 
-  var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Cauane 15//PT','BEGIN:VEVENT',
-    'UID:cauane15-20261226@convite','DTSTAMP:20261030T120000Z','DTSTART:20261226T220000Z','DTEND:20261227T030000Z',
-    'SUMMARY:15 anos da Cauane','LOCATION:R. Paraná\\, 2079 - Planalto\\, PR\\, 85750-000',
-    'DESCRIPTION:Meus 15 Anos - Cauane Oliveira. Você é nossa convidada especial!','END:VEVENT','END:VCALENDAR'].join('\r\n');
-  document.getElementById('ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+  // Agenda: iPhone/iPad/Mac abrem o .ics no Calendário da Apple; demais vão ao Google Agenda
+  var isApple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  var icsLink = document.getElementById('ics');
+  if (isApple) { icsLink.href = 'convite-cauane15.ics'; icsLink.removeAttribute('download'); }
+  else {
+    icsLink.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text=' + encodeURIComponent('15 anos da Cauane')
+      + '&dates=20261226T220000Z/20261227T030000Z'
+      + '&location=' + encodeURIComponent('R. Paraná, 2079 - Planalto, PR, 85750-000')
+      + '&details=' + encodeURIComponent('Meus 15 Anos - Cauane Oliveira. Você é nossa convidada especial! Convite: https://cauane15.vercel.app');
+    icsLink.removeAttribute('download'); icsLink.target = '_blank'; icsLink.rel = 'noopener';
+  }
 
   var scene = document.getElementById('scene'), env = document.getElementById('envelope'), card = document.getElementById('card');
   var opened = false;
