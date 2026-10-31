@@ -112,12 +112,16 @@ body{
 .btn:active{transform:scale(.98)}
 .btn.primary{background:var(--rose);color:#fff;border-color:var(--rose)}
 .btn:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.cal-choices{display:flex;gap:8px;margin-top:-2px}
+.cal-choices[hidden]{display:none}
+.cal-choices .btn{flex:1;font-size:16px;padding:12px 10px;background:rgba(255,255,255,.85)}
 .foot{font-size:14px;margin-top:22px;opacity:.75}
 .record-cta{position:fixed;left:0;right:0;bottom:3.5%;text-align:center;font-size:22px;color:var(--deep);opacity:0;transition:opacity .8s;z-index:30}
 .record-cta.show{opacity:1}
 .record-cta b{display:block;font-family:var(--script);font-size:34px;font-weight:400;color:var(--rose)}
 .record-cta .url{display:block;font-size:26px;font-weight:600;letter-spacing:.02em;margin:2px 0 4px}
-.record-cta{font-size:19px;opacity:0}
+.record-cta{font-size:19px;opacity:0;display:none;pointer-events:none}
+body.record .record-cta{display:block}
 body.record .scene.out .card{transform:translateY(-14%) scale(1.02)}
 @supports (width:1cqw){.t-meus{font-size:13.3cqw}.t-nome{font-size:20cqw}.t-conv{font-size:5.8cqw}.t-data{font-size:5.5cqw}.t-local{font-size:5.5cqw}.t-rsvp{font-size:5.1cqw}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
@@ -200,7 +204,11 @@ body.record .scene.out .card{transform:translateY(-14%) scale(1.02)}
     <div class="btns">
       <a class="btn primary" id="rsvp" href="#" target="_blank" rel="noopener">Confirmar presença</a>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=R.+Paran%C3%A1%2C+2079+-+Planalto%2C+PR%2C+85750-000" target="_blank" rel="noopener">Como chegar</a>
-      <a class="btn" id="ics" href="#" download="15-anos-cauane.ics">Salvar na agenda</a>
+      <a class="btn" id="ics" href="#" aria-expanded="false" aria-controls="calChoices">Salvar na agenda</a>
+      <div class="cal-choices" id="calChoices" hidden>
+        <a class="btn small" id="calApple" href="#">Calendário do iPhone</a>
+        <a class="btn small" id="calGoogle" href="#" target="_blank" rel="noopener">Google Agenda</a>
+      </div>
     </div>
     <p class="foot">Com carinho, Cauane e família</p>
   </section>
@@ -226,17 +234,23 @@ body.record .scene.out .card{transform:translateY(-14%) scale(1.02)}
   var msg = 'Olá! Confirmo presença nos 15 anos da Cauane 💗\nNome: ';
   document.getElementById('rsvp').href = 'https://wa.me/' + RSVP_PHONE + '?text=' + encodeURIComponent(msg);
 
-  // Agenda: iPhone/iPad/Mac abrem o .ics no Calendário da Apple; demais vão ao Google Agenda
-  var isApple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-  var icsLink = document.getElementById('ics');
-  if (isApple) { icsLink.href = 'convite-cauane15.ics'; icsLink.removeAttribute('download'); }
-  else {
-    icsLink.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+  // Agenda: no iPhone/iPad o .ics tocado num navegador embutido (WhatsApp) é ignorado; webcal:// abre o Calendário da Apple direto.
+  var isApple = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  var gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       + '&text=' + encodeURIComponent('15 anos da Cauane')
       + '&dates=20261226T220000Z/20261227T030000Z'
       + '&location=' + encodeURIComponent('R. Paraná, 2079 - Planalto, PR, 85750-000')
       + '&details=' + encodeURIComponent('Meus 15 Anos - Cauane Oliveira. Você é nossa convidada especial! Convite: https://cauane15.vercel.app');
-    icsLink.removeAttribute('download'); icsLink.target = '_blank'; icsLink.rel = 'noopener';
+  var webcal = 'webcal://cauane15.vercel.app/convite-cauane15.ics';
+  var icsLink = document.getElementById('ics'), choices = document.getElementById('calChoices');
+  document.getElementById('calApple').href = webcal;
+  document.getElementById('calGoogle').href = gcal;
+  icsLink.removeAttribute('download');
+  if (isApple) {
+    icsLink.href = '#agenda';
+    icsLink.addEventListener('click', function(e){ e.preventDefault(); choices.hidden = !choices.hidden; icsLink.setAttribute('aria-expanded', String(!choices.hidden)); });
+  } else {
+    icsLink.href = gcal; icsLink.target = '_blank'; icsLink.rel = 'noopener';
   }
 
   var scene = document.getElementById('scene'), env = document.getElementById('envelope'), card = document.getElementById('card');
